@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // to create a function, first declare it
+      function showMessage() {
+        alert('Hello everyone!');
+      }
+      // the function keyword goes first
+      // then the functions name
+      // then a list of parameters in the () brackets
+      // and finally the code of the function, aka the function body
+      // the function can then be called by name; showMessage();
+      // -----------------------------------------------------------------------
+      // local variables
+      // a variable declared inside of a function is only visible inside of it
+      function showMessage() {
+        let message = "Hello, I'm JavaScript!" // local variable
+        alert('Hello everyone!');
+      }
+      showMessage(); // would alert Hello, I'm Javascript!
+      alert(message); // <-- error, the variable is local to the function
+      // -----------------------------------------------------------------------
+      // outer variables
+      // a function can also access an outer variable as well
+      let userName = 'John';
+
+      function showMessage() {
+        let message = 'Hello, ' + userName;
+        alert(message);
+      }
+      showMessage(); // Hello, John
+      // the function has full access to the variable. it can also modify it
+      let userName = 'John';
+
+      function showMessage() {
+        userName = "Bob"; // (1) changed the outer variable
+
+        let message = 'Hello, ' + userName;
+        alert(message);
+      }
+      alert(userName); // John before the function call
+
+      showMessage();
+
+      alert(userName); // Bob, the value was modified by calling the function
+    </script>
+  </body>
+</html>
